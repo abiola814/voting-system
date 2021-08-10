@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <title>ESS LASU E-VOTE | Welcome</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="esslasu_vote.css" />
+  <link rel="stylesheet" href="w3css.css" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Raleway"
+  />
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Raleway", sans-serif;
+    }
+
+    body,
+    html {
+      height: 100%;
+      line-height: 1.8;
+    }
+
+    /* Full height image header */
+    .bgimg-1 {
+      background-position: center;
+      background-size: cover;
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.159),
+          rgba(0, 0, 0, 0.33)
+        ),
+        url(back_img.png);
+      min-height: 100%;
+    }
+  </style>
+
+  <body>
+    <!-- Navbar (sit on top) -->
+    <div class="sit-top">
+      <div class="top-card" id="myNavbar">
+        <a href="#home" class="top-navbar-item nav-button nav-wide"
+          >ESS-LASU AWARDS</a
+        >
+        <!-- Right-sided navbar links -->
+        <div class="right-card hide-small">
+          <a href="#team" class="top-navbar-item nav-button"> ADD CATEGORIES</a>
+          <a href="result.html" class="top-navbar-item nav-button"> RESULTS</a>
+          <a href="#get-started" class="top-navbar-item nav-button"
+            >GET STARTED</a
+          >
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+        <a
+          href="javascript:void(0)"
+          class="top-navbar-item nav-button mag-right mag-hide-large mag-hide-medium"
+          onclick="side_menu_open()"
+        >
+          <img src="menu.png" style="height: 30px" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav
+      class="my-sidebar my-bar-block mag-card mag-animate-left mag-hide-medium mag-hide-large"
+      style="
+        display: none;
+        color: #fff !important;
+        background-color: #3c286c !important;
+      "
+      id="mySidebar"
+    >
+      <a
+        href="javascript:void(0)"
+        onclick="side_menu_close()"
+        class="top-navbar-item nav-button"
+        style="
+          font-size: 18px !important;
+          padding-top: 16px !important;
+          padding-bottom: 16px !important;
+        "
+        >Close &times;</a
+      >
+      <a
+        href="#about"
+        onclick="side_menu_close()"
+        class="top-navbar-item nav-button"
+        >ADD CATEGORIES</a
+      >
+      <a
+        href="#pricing"
+        onclick="side_menu_close()"
+        class="top-navbar-item nav-button"
+        >RESULTS</a
+      >
+      <a
+        href="#get-started"
+        onclick="side_menu_close()"
+        class="top-navbar-item nav-button"
+        >GET STARTED</a
+      >
+    </nav>
+
+    <!-- Header with full-height image -->
+    <header class="bgimg-1 display-container" id="home">
+      <div>
+        <div class="container srcset" style="background-color: transparent">
+          <div class="award_class" style="text-align: center">
+            <img style="margin-top: 100px" src="ESS_LASU_AW.png" />
+          </div>
+          <div
+            style="
+              text-align: left;
+              color: #fff !important;
+              padding: 5px 50px 100px 50px;
+            "
+          >
+            <h5>
+              ESS-LASU Awards are given to the most voted student(s) in the
+              Faculty of Enginering of Lagos State University in recognition of
+              their oustanding qualities and political, academical or
+              socio-economical contributions.
+            </h5>
+            <a href="#get-started"
+              ><button class="nav-button my-light-grey">Get Started!</button></a
+            >
+          </div>
+
+          <div style="padding-top: 10px">
+            <div id="form_box" class="form-box">
+              <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">
+                  Log In
+                </button>
+                <button type="button" class="toggle-btn" onclick="register()">
+                  Sign Up
+                </button>
+              </div>
+              <div class="social-icons">
+                <img src="gg.png" />
+                <img src="esslg.png" />
+                <img src="fb1.png" />
+              </div>
+
+              <!-- Login Form -->
+              <form id="login" class="input-group">
+                <div class="alert">
+                  <span
+                    class="closebtn"
+                    onclick="this.parentElement.style.display='none';"
+                    >&times;</span
+                  >
+                  Invalid login credentials!!
+                </div>
+                <div class="alert">
+                  <span
+                    class="closebtn"
+                    onclick="this.parentElement.style.display='none';"
+                    >&times;</span
+                  >
+                  Invalid login credentials!!
+                </div>
+                <input
+                  type="text"
+                  class="input-field"
+                  placeholder="Username"
+                  required
+                />
+                <input
+                  type="password"
+                  class="input-field"
+                  placeholder="Enter Password"
+                  required
+                />
+                <input type="checkbox" class="check-box" />
+                <span class="s-span">Remember Password.</span>
+                <a href="result.html" style="text-decoration: none"
+                  ><button type="submit" class="submit-btn">Log In</button></a
+                >
+              </form>
+
+              <!-- Sign Up Form -->
+              <form id="register" class="input-group">
+                <div class="alert">
+                  <span
+                    class="closebtn"
+                    onclick="this.parentElement.style.display='none';"
+                    >&times;</span
+                  >
+                  Invalid login credentials!!
+                </div>
+                <div class="alert">
+                  <span
+                    class="closebtn"
+                    onclick="this.parentElement.style.display='none';"
+                    >&times;</span
+                  >
+                  Invalid login credentials!!
+                </div>
+                <input
+                  type="text"
+                  class="input-field"
+                  placeholder="Username"
+                  required
+                />
+                <input
+                  type="email"
+                  class="input-field"
+                  placeholder="Email"
+                  required
+                />
+                <input
+                  type="password"
+                  class="input-field"
+                  placeholder="Enter Password"
+                  required
+                />
+                <input
+                  type="password"
+                  class="input-field"
+                  placeholder="Password (repeat)"
+                  required
+                />
+                <input type="checkbox" class="check-box" />
+                <span class="s-span">I agree to all terms & conditons.</span>
+                <a href="result.html" style="text-decoration: none"
+                  ><button type="submit" class="submit-btn">Sign Up</button></a
+                >
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Footer -->
+    <footer
+      class="mag-center"
+      style="
+        color: #fff !important;
+        background-color: #3c286c !important;
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+      "
+    >
+      <a href="#home" class="nav-button my-light-grey"
+        ><img
+          src="top_arrow.png"
+          style="width: 25px; margin-right: 10px; margin-bottom: 3px"
+        />To the top</a
+      >
+
+      <div class="social-icons2">
+        <img class="hover-opacity" src="fb00.png" />
+        <img class="hover-opacity" src="ig00.png" />
+        <img class="hover-opacity" src="mail00.png" />
+        <img class="hover-opacity" src="twit00.png" />
+        <img class="hover-opacity" src="what00.png" />
+      </div>
+
+      <p>
+        Powered by
+        <a
+          href="default.html"
+          title="ESS_LASU"
+          target="_blank"
+          class="text-hover-text-green"
+          >David Ibrahim Led Administration</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      // Toggle between showing and hiding the sidebar when clicking the menu icon
+      var mySidebar = document.getElementById("mySidebar");
+
+      function side_menu_open() {
+        if (mySidebar.style.display === "block") {
+          mySidebar.style.display = "none";
+        } else {
+          mySidebar.style.display = "block";
+        }
+      }
+
+      // Close the sidebar with the close button
+      function side_menu_close() {
+        mySidebar.style.display = "none";
+      }
+
+      // Toggle Login/Signup
+      var x = document.getElementById("login");
+      var y = document.getElementById("register");
+      var z = document.getElementById("btn");
+      var t = document.getElementById("form_box");
+
+      function register() {
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+        t.style.height = "600px";
+      }
+      function login() {
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0px";
+        t.style.height = "480px";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+{% extends 'index.html' %}   
+{% block content %}
+  <div class="two-row" id="home">
+      <div class="equal-half  container " style="height: 700px;    filter:grayscale(50%);">
+        <div class="award_class" style="text-align: center;">
+          <img src="/esslasu_award.png">
+        </div>
+        <div style="text-align: left; color:#fff!important; padding: 5px 50px 100px 50px;">
+          <h1>ESS-LASU AWARDS</h1>
+          <p>ESS-LASU Awards are given to the most voted student(s) in the Faculty of Enginering of Lagos State
+            University
+            in recognition of their oustanding qualities and political, academical or socio-economical contributions.
+          </p>
+          <a href="#"><button class="nav-button my-light-grey">Get Started!</button></a>
+        </div>
+      </div>
+      <div class="equal-half container" id="get-started" style="height:700px">
+        <div style="padding-top: 65px; padding-right: 50% auto;">
+
+          <div id="form_box" class="form-box">
+            <div class="button-box">
+              <div id="btn"></div>
+              <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+              <button type="button" class="toggle-btn" onclick="register()">Sign Up</button>
+            </div>
+            <div class="social-icons"> 
+              <img src="/gg.png">
+              <img src="/esslg.png">
+              <img src="/fb1.png">
+            </div>
+            <form id="login" class="input-group">
+              <input type="text" class="input-field" placeholder="Username" required>
+              <input type="password" class="input-field" placeholder="Enter Password" required>
+              <input type="checkbox" class="check-box"> <span class="s-span">Remember Password.</span>
+              <a href="#" style="text-decoration: none;" ><button type="submit" class="submit-btn">Log In</button></a>
+            </form>
+            <form id="register" class="input-group">
+              <input type="text" class="input-field" placeholder="Username" required>
+              <input type="email" class="input-field" placeholder="Email" required>
+              <input type="password" class="input-field" placeholder="Enter Password" required>
+              <input type="password" class="input-field" placeholder="Password (repeat)" required>
+              <input type="checkbox" class="check-box"> <span class="s-span">I agree to all terms & conditons.</span>
+              <a href="#" style="text-decoration: none;"><button type="submit" class="submit-btn">Sign Up</button></a>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+{% endblock content %}
