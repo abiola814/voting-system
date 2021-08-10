@@ -19,3 +19,4 @@ six==1.15.0
   to install the following commands
 # IMAGES OF THE VOTING SYSTEM
 
+![Screenshot from 2021-08-10 18-15-31](https://user-images.githubusercontent.com/57540689/128910610-2661a50a-c072-46b8-8fe3-12d06e15867f.png)
