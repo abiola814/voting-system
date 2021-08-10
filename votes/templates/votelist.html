@@ -1,0 +1,38 @@
+
+{% extends 'index.html' %}
+{% block title %} ESS LASU E-VOTE | Voting {% endblock title %}
+{% block content %}     
+ <div class="container srcset" style="background-color: #FFF; ">
+
+        <h2 style="text-align: center; margin-top: 45px;">ESS-LASU e-voting</h2>
+
+        <div class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+          <strong>Warning!</strong> You can only vote once. Decisions can not be changed.
+        </div>
+          {% if messages %}
+              <div class="alert">
+                {% for message in messages %}
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+               {{ message }}
+               {% endfor %}
+              </div>
+          {% endif %}
+        <!-- Voting category -->
+        <input type="text" id="myInput" class="_myInput" onkeyup="mySearchFunction()" placeholder="   Search for names.." title="Type in a name">
+
+        <ul id="myUL">
+          {% for poll in polls %}
+          <li><a href="{% url 'vote:detail' poll.id %}">{{ poll.text|truncatewords:10 }} </a>
+              
+
+           </li>
+          {% endfor %}
+        </ul>
+       {% if request.user.is_staff %} 
+     <div>
+  <a href="{% url 'vote:end_poll' %}"  onclick="return confirm('Are you sure  ?')" style="text-decoration: none;"><button type="submit" style="background: red; font-weight: bolder; color: black;" class="submit_btn_ch">End Vote!</button></a>
+</div>
+      {% endif %}  
+      </div>
+{% endblock content %}

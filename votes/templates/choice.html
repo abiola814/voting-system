@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+
+{% block title %} ESS LASU E-VOTE | Choice{% endblock title %}
+{% block content %}
+      <div class="container srcset" style="background-color: #FFF; height: 750px; overflow: scroll; ">
+
+        <h2 style="text-align: center; margin-top: 45px;">ESS-LASU e-voting</h2>
+
+        <div class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          <strong>Warning!</strong> You can only vote once. Decisions can not be changed.
+        </div>
+          {% if messages %}
+              <div class="alert">
+                {% for message in messages %}
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+               {{ message }}
+               {% endfor %}
+              </div>
+               {% endif %}
+        <!-- Voting category -->
+        <div>
+          <hr>
+          <h3 style="text-align: center;"> <b>{{ poll }}</b></h3>
+          <form action="{% url 'vote:vote' poll.id %}" method="POST">
+          {% csrf_token %}
+        {% for choice in poll.choice_set.all %}
+          <label class="chk_container" for="choice{{ forloop.counter }}">{{ choice.choice_text }}
+            <input type="radio"  name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <span class="checkmark"></span>
+          </label>
+         {% endfor %}
+        </div>
+          <button type="submit" style="background: #FFAA2C; right: 0;" class="submit_btn_ch">vote</button>
+          <a href="{% url 'vote:list' %}" style="text-decoration: none;background: #3C286C; color: rgb(228, 228, 228);" class="submit_btn_ch" role="button">cancel</a>
+      
+      </form>
+      </div>
+  
+{% endblock content %}

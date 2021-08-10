@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <div>
+      <div class="container srcset" style="background-color: #FFF; ">
+
+        <h1 style="text-align: center; margin-top: 45px;">Results</h1>
+        {% for poll in polls %}
+        <!-- Results for each categories -->
+        <div>
+          {% if poll.active %}
+          <hr>
+          <h4>{{ poll.text }} <span style="font-size: large; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; float: right;"><strong>Total: {{ poll.get_vote_count }} votes</strong></span></h4>
+          {% else %}
+          <h4>{{ poll.text }}" Polling Has Ended! <span style="font-size: large; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; float: right;"><strong>Total: {{ poll.get_vote_count }} votes</strong></span></h4>
+          {% endif %}
+         
+          {% for choice in poll.get_result_dict %}
+          <h6>{{choice.text|truncatewords:10}}  <span style="font-size: large; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; float: right;"><strong> {{ choice.num_votes }}</strong></span></h6>
+          <div class="my-light-grey w3-round-xlarge w3-small">
+            <div class="container mag-center w3-round-xlarge w3-teal" 
+            style="width:{{ choice.percentage }}%; text-decoration-color: #FFF; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{choice.percentage|floatformat}}% </div>
+          </div>
+         {% endfor %}
+        
+        </div>
+
+
+        {% endfor %}
+      </div>
+     
+</div>
+</div>
+</div>
+    
+
+ {% endblock content %}
