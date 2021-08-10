@@ -1,0 +1,80 @@
+{% extends 'index.html' %} 
+{% load static %}  
+{% block content %}
+
+<div class="two-row" id="home">
+      <div class="equal-half  container " style="height: 700px;    filter:grayscale(50%);">
+        <div class="award_class" style="text-align: center;">
+          <img src="{% static 'img/esslasu_award.png'%}">
+        </div>
+        <div style="text-align: left; color:#fff!important; padding: 5px 50px 100px 50px;">
+          <h1>ESS-LASU AWARDS</h1>
+          <p>ESS-LASU Awards are given to the most voted student(s) in the Faculty of Enginering of Lagos State
+            University
+            in recognition of their oustanding qualities and political, academical or socio-economical contributions.
+          </p>
+          <a href="#get-started"><button class="nav-button my-light-grey">Get Started!</button></a>
+        </div>
+      </div>
+      {% if request.user.is_authenticated %}
+        {{empty}}
+      {% else %}
+      <div class="equal-half container" id="get-started" style="height:700px">
+        <div style="padding-top: 65px; padding-right: 50% auto; ">
+
+          <div id="form_box" class="form-box">
+            <div class="button-box">
+              <div id="btn"></div>
+              <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+              <button type="button" class="toggle-btn" onclick="register()">Sign Up</button>
+            </div>
+           <div class="social-icons"> 
+              <img src="{% static 'img/gg.png'%}">
+              <img src="{% static 'img/esslg.png'%}">
+              <img src="{% static 'img/fb1.png'%}">
+            </div>
+
+            <!-- Login Form -->
+             <form action="{% url 'account:login' %}" id="login" class="input-group" method="post">
+              {% csrf_token %}
+              {% if messages %}
+              <div class="alert">
+                {% for message in messages %}
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+               {{ message }}
+               {% endfor %}
+              </div>
+               {% endif %}
+              
+            <div><input type="text" class="input-field" name="username" placeholder="Username" required></div>
+              <div><input type="password" class="input-field"  name="password" placeholder="Enter Password" required></div>
+              <div><input type="checkbox" class="check-box"> <span class="s-span">Remember Password.</span></div>
+              <div><button type="submit" class="submit-btn">Log In</button></div>
+            </form>
+
+            <!-- Sign Up Form -->
+           <form action="{% url 'account:register' %}" id="register" class="input-group" method="post">
+               {% csrf_token %}
+                           {% if messages %}
+              <div class="alert">
+                {% for message in messages %}
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+               {{ message }}
+               {% endfor %}
+              </div>
+               {% endif %}
+              
+             <div><input type="text" class="input-field" name="username" placeholder="username"required></div>
+              <div><input type="email" class="input-field" name="email" placeholder="Email" required></div>
+              <div><input type="password" class="input-field" name="password" placeholder="Enter Password" required></div>
+              <div><input type="password" class="input-field"name="password2" placeholder="Password (repeat)" required></div>
+              <div><input type="checkbox" class="check-box"> <span class="s-span">I agree to all terms & conditons.</span></div>
+              <div><button type="submit" class="submit-btn">Sign Up</button></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+      {% endif %}
+    </div>
+{% endblock content %}
